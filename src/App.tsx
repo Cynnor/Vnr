@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
   X, MessageCircle, Send, ChevronDown,
-  TrendingUp, TrendingDown, ShieldAlert, Award,
+  TrendingUp, ShieldAlert, Award,
   BookOpen, Users, Landmark, HeartHandshake,
   CheckCircle2, AlertCircle, ArrowRight, LayoutTemplate, BrainCircuit,
   Video, Play, Pause, RotateCcw, Volume2
