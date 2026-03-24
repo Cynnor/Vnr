@@ -615,7 +615,11 @@ const ChatWidget = () => {
 }
 
 function App() {
-  const [activeView, setActiveView] = useState<'presentation' | 'quiz' | 'creative'>('creative');
+  const [activeView, setActiveView] = useState<'presentation' | 'quiz' | 'creative'>('presentation');
+
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }, [activeView]);
 
   return (
     <div className="font-sans antialiased text-slate-900 bg-slate-50 selection:bg-red-500/30">
