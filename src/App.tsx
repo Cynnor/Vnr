@@ -53,7 +53,7 @@ const Presentation = () => {
             transition={{ repeat: Infinity, duration: 2, ease: "easeInOut" }}
             className="absolute bottom-10 left-1/2 -translate-x-1/2"
           >
-            <ChevronDown size={40} className="text-red-500 opacity-80" />
+            {/* <ChevronDown size={40} className="text-red-500 opacity-80" /> */}
           </motion.div>
         </div>
       </section>
@@ -101,7 +101,7 @@ const Presentation = () => {
           <FadeIn>
             <div className="max-w-5xl mx-auto text-center mb-16">
               <span className="text-red-600 font-bold tracking-wider uppercase text-sm mb-3 block">Phần 3: Đại Hội VI</span>
-              <h2 className="text-4xl md:text-5xl font-extrabold text-slate-900 mb-6">Bước Ngoặt Tư Duy <br/> Tiếng Sấm Đầu Tiên</h2>
+              <h2 className="text-4xl md:text-5xl font-extrabold text-slate-900 mb-6">Bước Ngoặt Tư Duy <br/> <br/> Tiếng Sấm Đầu Tiên</h2>
               <div className="w-24 h-1.5 bg-red-600 mx-auto rounded-full"></div>
             </div>
           </FadeIn>
@@ -481,47 +481,131 @@ const Quiz = () => {
 const ChatWidget = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [messages, setMessages] = useState<{ role: 'ai' | 'user', text: string }[]>([
-    { role: 'ai', text: 'Chào bạn! Mình là AI hỗ trợ ôn tập về tài liệu Cương lĩnh 1991.' }
+    { role: 'ai', text: 'Chào bạn! Mình là AI hỗ trợ ôn tập về tài liệu Cương lĩnh 1991. Bạn có câu hỏi nào không?' }
   ]);
   const [input, setInput] = useState('');
+  const [isLoading, setIsLoading] = useState(false);
   const endRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => { endRef.current?.scrollIntoView({ behavior: 'smooth' }); }, [messages, isOpen]);
 
-  const handleSend = () => {
-    if (!input.trim()) return;
-    setMessages(prev => [...prev, { role: 'user', text: input.trim() }]);
+  const handleSend = async () => {
+    if (!input.trim() || isLoading) return;
+    
+    const userText = input.trim();
+    setMessages(prev => [...prev, { role: 'user', text: userText }]);
     setInput('');
-    setTimeout(() => {
-        setMessages(prev => [...prev, { role: 'ai', text: "Theo Cương lĩnh 1991, đổi mới nhưng không đổi màu là nguyên tắc then chốt." }]);
-    }, 800);
+    setIsLoading(true);
+
+    try {
+      const apiKey = import.meta.env.VITE_GEMINI_API_KEY;
+      if (!apiKey) {
+        setMessages(prev => [...prev, { role: 'ai', text: "Vui lòng cấu hình VITE_GEMINI_API_KEY trong file .env để AI có thể hoạt động thật." }]);
+        setIsLoading(false);
+        return;
+      }
+
+      // Format previous messages for Gemini format
+      const history = messages.filter(m => m.text !== 'Chào bạn! Mình là AI hỗ trợ ôn tập về tài liệu Cương lĩnh 1991. Bạn có câu hỏi nào không?').map(m => ({
+        role: m.role === 'ai' ? 'model' : 'user',
+        parts: [{ text: m.text }]
+      }));
+
+      const contextPrompt = "Bạn là một trợ lý AI tên VNR hỗ trợ học tập về môn Lịch sử Đảng, đặc biệt là tài liệu Cương lĩnh 1991. Hãy trả lời ngắn gọn, lịch sự, chính xác và bám sát bối cảnh Đại hội VI và Cương lĩnh 1991 của Việt Nam.";
+
+      const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${apiKey}`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          contents: [
+            { role: 'user', parts: [{ text: contextPrompt }] },
+            { role: 'model', parts: [{ text: "Tôi đã hiểu nhiệm vụ của mình. Tôi sẽ trả lời tư cách chuyên gia về Cương lĩnh 1991." }] },
+            ...history,
+            { role: 'user', parts: [{ text: userText }] }
+          ]
+        })
+      });
+
+      const data = await response.json();
+      
+      if (data.error) {
+        setMessages(prev => [...prev, { role: 'ai', text: `Lỗi từ API: ${data.error.message}` }]);
+      } else {
+        const aiResponse = data.candidates?.[0]?.content?.parts?.[0]?.text || "Xin lỗi, tôi không thể trả lời lúc này.";
+        setMessages(prev => [...prev, { role: 'ai', text: aiResponse }]);
+      }
+    } catch (error) {
+      setMessages(prev => [...prev, { role: 'ai', text: "Ops! Lỗi kết nối mạng, vui lòng thử lại sau." }]);
+      console.error(error);
+    } finally {
+      setIsLoading(false);
+    }
   }
 
   return (
     <>
       {!isOpen && (
-        <button onClick={() => setIsOpen(true)} className="fixed bottom-6 right-6 w-16 h-16 bg-red-600 rounded-full flex justify-center items-center text-white shadow-xl z-50 border-4 border-white hover:scale-110">
+        <button onClick={() => setIsOpen(true)} className="fixed bottom-6 right-6 w-16 h-16 bg-red-600 rounded-full flex justify-center items-center text-white shadow-xl z-50 border-4 border-white hover:scale-110 transition-transform">
           <MessageCircle size={28} />
         </button>
       )}
       <AnimatePresence>
         {isOpen && (
-          <motion.div className="fixed bottom-6 right-6 w-[350px] bg-white rounded-3xl shadow-2xl z-50 flex flex-col border border-slate-200 h-[500px]">
-             <div className="bg-slate-900 p-4 flex justify-between items-center text-white">
-                <div className="flex items-center gap-3"><BrainCircuit className="text-amber-400"/> Trợ lý AI</div>
-                <button onClick={() => setIsOpen(false)}><X/></button>
+          <motion.div 
+            initial={{ opacity: 0, y: 50, scale: 0.9 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            exit={{ opacity: 0, y: 50, scale: 0.9 }}
+            className="fixed bottom-6 right-6 w-[350px] sm:w-[400px] bg-white rounded-3xl shadow-2xl z-50 flex flex-col border border-slate-200 h-[500px] max-h-[80vh] overflow-hidden"
+          >
+             <div className="bg-slate-900 p-4 flex justify-between items-center text-white shrink-0">
+                <div className="flex items-center gap-3">
+                  <div className="p-2 bg-slate-800 rounded-lg"><BrainCircuit className="text-amber-400" size={20}/></div>
+                  <div>
+                    <div className="font-bold">Trợ lý Lịch Sử Đảng</div>
+                    <div className="text-xs text-green-400 flex items-center gap-1"><span className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></span> Online</div>
+                  </div>
+                </div>
+                <button onClick={() => setIsOpen(false)} className="hover:bg-slate-800 p-2 rounded-full transition-colors"><X size={20}/></button>
              </div>
-             <div className="flex-1 p-4 overflow-y-auto bg-slate-50">
+             <div className="flex-1 p-4 overflow-y-auto bg-slate-50 flex flex-col scroll-smooth">
                {messages.map((m, i) => (
-                 <div key={i} className={`mb-3 p-3 max-w-[85%] text-sm rounded-xl ${m.role === 'user' ? 'bg-red-600 text-white ml-auto' : 'bg-white border'}`}>
-                   {m.text}
-                 </div>
+                 <motion.div key={i} initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} className={`mb-4 max-w-[85%] text-sm rounded-2xl p-3 shadow-sm ${m.role === 'user' ? 'bg-red-600 text-white ml-auto rounded-tr-sm' : 'bg-white border text-slate-700 rounded-tl-sm'}`}>
+                   {/* Handle simple markdown for AI response */}
+                   {m.role === 'ai' ? (
+                      <div className="prose prose-sm prose-slate max-w-none" dangerouslySetInnerHTML={{ __html: m.text.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>').replace(/\n/g, '<br/>') }} />
+                   ) : m.text}
+                 </motion.div>
                ))}
+               {isLoading && (
+                 <div className="mb-4 max-w-[85%] bg-white border text-slate-700 p-3 rounded-2xl rounded-tl-sm shadow-sm flex gap-2 w-16">
+                   <div className="w-2 h-2 bg-slate-300 rounded-full animate-bounce" style={{ animationDelay: '0ms' }}></div>
+                   <div className="w-2 h-2 bg-slate-300 rounded-full animate-bounce" style={{ animationDelay: '150ms' }}></div>
+                   <div className="w-2 h-2 bg-slate-300 rounded-full animate-bounce" style={{ animationDelay: '300ms' }}></div>
+                 </div>
+               )}
                <div ref={endRef} />
              </div>
-             <div className="p-3 border-t flex gap-2">
-                <input value={input} onChange={e => setInput(e.target.value)} onKeyDown={e=>e.key==='Enter'&&handleSend()} className="flex-1 bg-slate-100 px-3 py-2 rounded-xl text-sm" placeholder="Hỏi AI..."/>
-                <button onClick={handleSend} className="w-10 h-10 bg-red-600 text-white rounded-xl flex items-center justify-center"><Send size={18}/></button>
+             <div className="p-3 bg-white border-t shrink-0">
+                <div className="flex gap-2 relative">
+                  <input 
+                    value={input} 
+                    onChange={e => setInput(e.target.value)} 
+                    onKeyDown={e=>e.key==='Enter'&&handleSend()} 
+                    disabled={isLoading}
+                    className="flex-1 bg-slate-100 pl-4 pr-12 py-3 rounded-2xl text-sm focus:outline-none focus:ring-2 focus:ring-red-500/20 transition-shadow disabled:opacity-50" 
+                    placeholder="Hỏi về Cương lĩnh 1991..."
+                  />
+                  <button 
+                    onClick={handleSend} 
+                    disabled={isLoading || !input.trim()}
+                    className="absolute right-1 top-1 w-10 h-10 bg-red-600 text-white rounded-xl flex items-center justify-center hover:bg-red-700 disabled:bg-slate-300 disabled:cursor-not-allowed transition-colors"
+                  >
+                    <Send size={18}/>
+                  </button>
+                </div>
+                <div className="text-[10px] text-center text-slate-400 mt-2 font-medium">Bản Demo kết nối API Gemini</div>
              </div>
           </motion.div>
         )}
@@ -539,11 +623,11 @@ function App() {
         <div className="container mx-auto px-6 h-20 flex items-center justify-between">
           <div className="flex items-center gap-4 cursor-pointer" onClick={() => setActiveView('presentation')}>
             <div className="w-12 h-12 bg-gradient-to-br from-red-600 to-red-800 rounded-xl flex items-center justify-center shadow-lg border border-red-500/20">
-              <span className="text-yellow-400 font-black text-xl">Đ</span>
+              <span className="text-yellow-400 font-black text-xl">7</span>
             </div>
             <div className="hidden lg:block">
-              <h1 className="font-extrabold text-slate-900 tracking-tight">Kịch Bản Thuyết Trình</h1>
-              <p className="text-xs text-slate-500 font-medium">Cương lĩnh 1991</p>
+              <h1 className="font-extrabold text-slate-900 tracking-tight">Cương lĩnh 1991</h1>
+              <p className="text-xs text-slate-500 font-medium">Group 7</p>
             </div>
           </div>
           
