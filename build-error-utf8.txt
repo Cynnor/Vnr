@@ -1,0 +1,1 @@
+﻿src/App.tsx(243,29): error TS6133: 'lesson' is declared but its value is never read.
