@@ -1,11 +1,11 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
-  X, MessageCircle, Send, ChevronDown,
+  X, MessageCircle, Send,
   TrendingUp, ShieldAlert, Award,
   BookOpen, Users, Landmark, HeartHandshake,
   CheckCircle2, AlertCircle, ArrowRight, LayoutTemplate, BrainCircuit,
-  Video, Play, Pause, RotateCcw, Volume2
+  Video
 } from 'lucide-react';
 
 const FadeIn = ({ children, delay = 0, className = "" }: { children: React.ReactNode, delay?: number, className?: string }) => (
@@ -43,13 +43,17 @@ const Presentation = () => {
         </div>
         <div className="container mx-auto px-6 relative z-10 text-white flex flex-col items-center justify-center text-center">
           <FadeIn>
-            <span className="px-5 py-2 rounded-full border border-red-500/30 bg-red-500/10 text-red-400 text-sm font-bold tracking-widest uppercase mb-8 inline-block">
+            {/* <span className="px-5 py-2 rounded-full border border-red-500/30 bg-red-500/10 text-red-400 text-sm font-bold tracking-widest uppercase mb-8 inline-block">
               Kịch Bản Thuyết Trình
-            </span>
+            </span> */}
             <h1 className="text-5xl md:text-7xl font-extrabold mb-8 leading-tight tracking-tight">
-              Cương Lĩnh 1991 &<br />
+              Cương Lĩnh 1991 <br />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-500 to-yellow-400">
-                Sự Phát Triển Tư Duy Lý Luận
+                & Sự Phát Triển Tư Duy Lý Luận 
+              </span>
+              <br></br>
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-500 to-yellow-400">
+                của Đảng về Chủ Nghĩa Xã Hội
               </span>
             </h1>
             <p className="text-xl text-slate-300 max-w-3xl mx-auto leading-relaxed font-light">
@@ -62,7 +66,7 @@ const Presentation = () => {
             </div>
           </FadeIn>
           <motion.div animate={{ y: [0, 10, 0] }} transition={{ repeat: Infinity, duration: 2 }} className="absolute bottom-10 left-1/2 -translate-x-1/2">
-            <ChevronDown size={40} className="text-red-500 opacity-80" />
+            {/* <ChevronDown size={40} className="text-red-500 opacity-80" /> */}
           </motion.div>
         </div>
       </section>
@@ -95,6 +99,49 @@ const Presentation = () => {
               </FadeIn>
             ))}
           </div>
+
+          {/* Ảnh lịch sử minh họa khủng hoảng */}
+          <FadeIn delay={0.3} className="max-w-6xl mx-auto mt-16 px-0">
+            <div className="text-center mb-8">
+              <span className="bg-red-600/10 text-red-600 text-[10px] font-black uppercase tracking-[0.2em] px-3 py-1 rounded-full border border-red-200">
+                Tư liệu thực tế
+              </span>
+            </div>
+            <div className="grid md:grid-cols-2 gap-8">
+              <div className="group relative overflow-hidden rounded-[2.5rem] shadow-2xl border border-white/50 bg-white p-2">
+                <div className="overflow-hidden rounded-[2rem] aspect-[16/10]">
+                  <img
+                    src="/img_chen_mua_hang.jpg"
+                    alt="Người dân chen mua hàng thời bao cấp"
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-out"
+                  />
+                </div>
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-900/90 via-slate-900/20 to-transparent pointer-events-none" />
+                <div className="absolute bottom-6 left-6 right-6">
+                  <p className="text-white text-sm font-bold leading-relaxed shadow-sm">
+                    Người dân chen nhau mua hàng tại quầy mậu dịch — cảnh tượng quen thuộc thời kỳ bao cấp
+                  </p>
+                  <p className="text-slate-300 text-[11px] mt-2 font-medium">Hà Nội, thập niên 1980</p>
+                </div>
+              </div>
+              <div className="group relative overflow-hidden rounded-[2.5rem] shadow-2xl border border-white/50 bg-white p-2">
+                <div className="overflow-hidden rounded-[2rem] aspect-[16/10]">
+                  <img
+                    src="/img_xep_hang.jpg"
+                    alt="Người dân xếp hàng chờ mua lương thực"
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-out"
+                  />
+                </div>
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-900/90 via-slate-900/20 to-transparent pointer-events-none" />
+                <div className="absolute bottom-6 left-6 right-6">
+                  <p className="text-white text-sm font-bold leading-relaxed shadow-sm">
+                    Người dân xếp hàng dài chờ mua lương thực — hình ảnh tiêu biểu của những năm tháng gian khó
+                  </p>
+                  <p className="text-slate-300 text-[11px] mt-2 font-medium">Của hàng lương thực, 1980s</p>
+                </div>
+              </div>
+            </div>
+          </FadeIn>
         </div>
       </section>
 
@@ -111,20 +158,43 @@ const Presentation = () => {
             />
           </FadeIn>
           <FadeIn delay={0.2}>
-            <div className="max-w-4xl mx-auto bg-slate-800/60 border border-slate-700/50 rounded-3xl p-10 md:p-14 text-center">
-              <div className="text-5xl mb-8">📜</div>
-              <blockquote className="text-xl md:text-2xl font-bold text-white leading-relaxed mb-6 italic">
-                "Đảng lấy chủ nghĩa Mác - Lênin và <span className="text-yellow-400">tư tưởng Hồ Chí Minh</span> làm nền tảng tư tưởng, kim chỉ nam cho hành động."
-              </blockquote>
-              <p className="text-slate-400 text-sm">— Cương lĩnh xây dựng đất nước trong thời kỳ quá độ lên CNXH, 1991</p>
-              <div className="mt-10 grid md:grid-cols-2 gap-6 text-left">
-                <div className="bg-slate-700/40 border border-slate-600/40 rounded-2xl p-6">
-                  <h4 className="font-bold text-yellow-400 mb-3">Ý nghĩa lý luận</h4>
-                  <p className="text-slate-300 text-sm leading-relaxed">Bước phát triển nhảy vọt — khắc phục triệt để bệnh giáo điều, rập khuôn mô hình nước ngoài.</p>
+            <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-8 items-stretch">
+              {/* Tờ báo gốc */}
+              <div className="group relative overflow-hidden rounded-[2.5rem] shadow-2xl border border-slate-700/50 bg-slate-800 flex flex-col">
+                <div className="flex-1 overflow-hidden">
+                  <img
+                    src="/img_cuong_linh_bao.jpg"
+                    alt="Tờ báo đăng Cương Lĩnh Xây Dựng CNXH Trong Thời Kỳ Quá Độ năm 1991"
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000"
+                  />
                 </div>
-                <div className="bg-slate-700/40 border border-slate-600/40 rounded-2xl p-6">
-                  <h4 className="font-bold text-yellow-400 mb-3">Tính dân tộc sâu sắc</h4>
-                  <p className="text-slate-300 text-sm leading-relaxed">Định hình con đường cách mạng mang đậm bản sắc và phù hợp với thực tiễn Việt Nam.</p>
+                <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-slate-950 px-8 py-6">
+                  <span className="bg-yellow-400 text-slate-900 text-[10px] font-black px-3 py-1 rounded-full uppercase tracking-widest">Tài liệu quan trọng</span>
+                  <p className="text-white text-base font-bold mt-2 leading-tight">Dự thảo Cương lĩnh được công bố rộng rãi trên báo chí cuối năm 1990</p>
+                </div>
+              </div>
+              {/* Nội dung trích dẫn */}
+              <div className="bg-slate-800/40 backdrop-blur-sm border border-slate-700/50 rounded-[2.5rem] p-10 md:p-14 flex flex-col justify-center text-center">
+                <div className="text-6xl mb-8">📜</div>
+                <blockquote className="text-xl md:text-2xl font-bold text-white leading-relaxed mb-8 italic">
+                  "Đảng lấy chủ nghĩa Mác - Lênin và <span className="text-yellow-400">tư tưởng Hồ Chí Minh</span> làm nền tảng tư tưởng, kim chỉ nam cho hành động."
+                </blockquote>
+                <p className="text-slate-400 text-sm font-medium border-t border-slate-700/50 pt-6 inline-block w-fit mx-auto">
+                  Văn kiện Đại hội đại biểu toàn quốc lần thứ VII
+                </p>
+                <div className="mt-10 grid gap-6 text-left">
+                  <div className="bg-white/5 border border-white/10 rounded-2xl p-6 hover:bg-white/10 transition-colors">
+                    <h4 className="font-bold text-yellow-400 mb-2 flex items-center gap-2">
+                       <span className="w-2 h-2 rounded-full bg-yellow-400"></span> Ý nghĩa lý luận
+                    </h4>
+                    <p className="text-slate-300 text-sm leading-relaxed">Bước nhảy vọt về nhận thức — khắc phục triệt để tư duy mòn cũ, giáo điều.</p>
+                  </div>
+                  <div className="bg-white/5 border border-white/10 rounded-2xl p-6 hover:bg-white/10 transition-colors">
+                    <h4 className="font-bold text-yellow-400 mb-2 flex items-center gap-2">
+                       <span className="w-2 h-2 rounded-full bg-yellow-400"></span> Tính thực tiễn
+                    </h4>
+                    <p className="text-slate-300 text-sm leading-relaxed">Phản ánh nguyện vọng nhân dân và quy luật tất yếu của CM Việt Nam.</p>
+                  </div>
                 </div>
               </div>
             </div>
@@ -164,24 +234,59 @@ const Presentation = () => {
           </div>
 
           <div className="max-w-6xl mx-auto">
-            <FadeIn><h3 className="text-2xl font-extrabold text-slate-900 text-center mb-8">6 Đặc Trưng Cơ Bản của CNXH</h3></FadeIn>
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {[
-                { icon: <Users size={24}/>, title: "Nhân dân làm chủ", desc: "Do nhân dân lao động làm chủ đất nước." },
-                { icon: <TrendingUp size={24}/>, title: "Kinh tế phát triển cao", desc: "Lực lượng sản xuất hiện đại, chế độ công hữu về tư liệu sản xuất chủ yếu." },
-                { icon: <Landmark size={24}/>, title: "Văn hóa bản sắc", desc: "Nền văn hoá tiên tiến, đậm đà bản sắc dân tộc." },
-                { icon: <Award size={24}/>, title: "Con người được giải phóng", desc: "Không áp bức, bóc lột — làm theo năng lực, hưởng theo lao động." },
-                { icon: <HeartHandshake size={24}/>, title: "Các dân tộc bình đẳng", desc: "Bình đẳng, đoàn kết và giúp đỡ lẫn nhau cùng tiến bộ." },
-                { icon: <ShieldAlert size={24}/>, title: "Hòa bình quốc tế", desc: "Quan hệ hữu nghị và hợp tác với nhân dân tất cả các nước." },
-              ].map((item, i) => (
-                <FadeIn key={i} delay={0.08 * i}>
-                  <div className="bg-slate-900 text-white p-8 rounded-3xl hover:bg-red-700 transition-colors duration-300 group h-full flex flex-col gap-4">
-                    <div className="w-12 h-12 bg-white/10 group-hover:bg-white/20 rounded-2xl flex items-center justify-center text-yellow-400">{item.icon}</div>
-                    <h4 className="font-bold text-lg"><span className="text-red-400 group-hover:text-yellow-300">{i + 1}.</span> {item.title}</h4>
-                    <p className="text-slate-400 group-hover:text-white/80 text-sm leading-relaxed">{item.desc}</p>
-                  </div>
-                </FadeIn>
-              ))}
+            <FadeIn><h3 className="text-2xl font-extrabold text-slate-900 text-center mb-12">6 Đặc Trưng Cơ Bản của CNXH</h3></FadeIn>
+            <div className="flex flex-col lg:flex-row gap-12 items-start">
+
+              {/* Infographic Đại hội VII — Thu gọn tối đa, bám nội dung */}
+              <FadeIn delay={0.15} className="lg:w-80 shrink-0 lg:sticky lg:top-28">
+                <div className="bg-slate-50 border border-slate-200 rounded-[2.5rem] p-4 shadow-xl">
+                    <p className="text-[10px] font-black uppercase tracking-[0.2em] text-slate-400 mb-4 text-center">Thông qua tại Đại Hội VII</p>
+                    <div className="group overflow-hidden rounded-[2rem] shadow-inner border border-slate-200 bg-white">
+                    <img
+                        src="/img_dai_hoi_vii.jpg"
+                        alt="Infographic Đại hội lần thứ VII của Đảng (24-27/6/1991)"
+                        className="w-full object-contain group-hover:scale-105 transition-transform duration-500"
+                    />
+                    <div className="p-5 bg-red-700">
+                        <div className="flex items-center gap-3 mb-2">
+                        <div className="w-8 h-8 rounded-full bg-yellow-400 flex items-center justify-center shadow-lg">
+                            <span className="text-red-700 font-black text-xs">★</span>
+                        </div>
+                        <span className="text-white font-bold text-xs uppercase tracking-wider">Lịch sử Đảng</span>
+                        </div>
+                        <p className="text-red-50 text-[11px] font-medium leading-relaxed italic border-t border-red-500/30 pt-3">
+                        "Cương lĩnh 1991 không chỉ là một văn bản, đó là trí tuệ của toàn dân..."
+                        </p>
+                    </div>
+                </div>
+                </div>
+              </FadeIn>
+
+              {/* 6 đặc trưng — Grid 2 cột sắc nét */}
+              <div className="flex-1 grid sm:grid-cols-2 gap-6">
+                {[
+                  { icon: <Users size={22}/>, title: "Nhân dân làm chủ", desc: "Tất cả quyền lực thuộc về nhân dân lao động, do dân vì dân." },
+                  { icon: <TrendingUp size={22}/>, title: "Kinh tế hiện đại", desc: "Lực lượng sản xuất phát triển cao trên cơ sở QHSX phù hợp." },
+                  { icon: <Landmark size={22}/>, title: "Văn hóa dân tộc", desc: "Tiên tiến, đậm đà bản sắc, nâng tầm tâm hồn người Việt." },
+                  { icon: <Award size={22}/>, title: "Đời sống ấm no", desc: "Không còn áp bức, mọi người làm theo năng lực hưởng theo lao động." },
+                  { icon: <HeartHandshake size={22}/>, title: "Các dân tộc bình đẳng", desc: "Bình đẳng, đoàn kết và giúp đỡ lẫn nhau cùng tiến bộ." },
+                  { icon: <ShieldAlert size={22}/>, title: "Hòa bình quốc tế", desc: "Quan hệ hữu nghị và hợp tác với nhân dân tất cả các nước." },
+                ].map((item, i) => (
+                  <FadeIn key={i} delay={0.08 * i}>
+                    <div className="group relative bg-white border border-slate-100 p-8 rounded-[2.5rem] shadow-sm hover:shadow-2xl hover:border-red-100 transition-all duration-500 hover:-translate-y-1 h-full flex flex-col gap-5 overflow-hidden">
+                      <div className="absolute top-0 right-0 w-24 h-24 bg-red-50 rounded-bl-[4rem] -mr-10 -mt-10 group-hover:bg-red-600 transition-colors duration-500"></div>
+                      <div className="w-14 h-14 bg-red-50 rounded-2xl flex items-center justify-center text-red-600 group-hover:bg-red-600 group-hover:text-white transition-all duration-500 relative z-10">{item.icon}</div>
+                      <div className="relative z-10">
+                        <h4 className="font-extrabold text-lg text-slate-900 mb-2 flex items-center gap-3">
+                            <span className="text-red-600 group-hover:text-red-500">{i + 1}.</span> {item.title}
+                        </h4>
+                        <p className="text-slate-500 group-hover:text-slate-700 text-sm leading-relaxed">{item.desc}</p>
+                      </div>
+                    </div>
+                  </FadeIn>
+                ))}
+              </div>
+
             </div>
           </div>
         </div>
@@ -258,6 +363,35 @@ const Presentation = () => {
               </FadeIn>
             ))}
           </div>
+
+          {/* Ảnh minh họa cửa hàng hợp tác XH — Full Width Banner chuyên nghiệp */}
+          <FadeIn delay={0.4} className="w-full mt-24 mb-12">
+            <div className="max-w-6xl mx-auto px-0">
+                <div className="group relative overflow-hidden rounded-[3rem] shadow-2xl border border-white/50 bg-slate-100">
+                    <div className="aspect-[21/9] md:aspect-[3/1]">
+                        <img
+                            src="/img_cua_hang_hop_tac.jpg"
+                            alt="Cửa hàng Hợp Tác Kinh Doanh Ngành Quốc Dép Nhựa - Hoàn Kiếm"
+                            className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-[2s] ease-in-out"
+                        />
+                    </div>
+                    <div className="absolute inset-0 bg-gradient-to-r from-slate-900/90 via-slate-900/40 to-transparent flex flex-col justify-center p-8 md:p-16">
+                        <div className="max-w-xl">
+                            <span className="bg-green-500 text-white text-[10px] font-black px-4 py-1.5 rounded-full w-fit mb-6 block uppercase tracking-[0.2em] shadow-lg">
+                                Bước chuyển lịch sử
+                            </span>
+                            <h4 className="text-white font-black text-3xl md:text-4xl leading-tight mb-4 drop-shadow-md">
+                                Hợp Tác Xã Kiểu Mới
+                            </h4>
+                            <p className="text-slate-200 text-lg leading-relaxed drop-shadow-sm font-medium">
+                                Những mô hình kinh tế hợp tác đầu tiên tại Hoàn Kiếm, Hà Nội, đánh dấu sự xóa bỏ cơ chế bao cấp, chuyển mình sang nền kinh tế hàng hóa nhiều thành phần.
+                            </p>
+                        </div>
+                    </div>
+                    <div className="absolute top-8 right-8 text-white/20 font-black text-6xl select-none group-hover:text-white/30 transition-colors">1991</div>
+                </div>
+            </div>
+          </FadeIn>
         </div>
       </section>
 
@@ -320,8 +454,38 @@ const Presentation = () => {
             <p className="text-xl leading-relaxed mb-6 opacity-90">
               Cương lĩnh 1991 không chỉ cứu nguy cho dân tộc trong thời điểm cam go mà còn đặt nền móng lý luận vững chắc. Hơn 30 năm qua, những giá trị cốt lõi đó vẫn tiếp tục soi đường cho đất nước phát triển phồn vinh.
             </p>
-            <p className="font-bold text-2xl italic border-y border-red-500/50 py-6">
-              "Xin trân trọng cảm ơn thầy cô và các bạn đã lắng nghe!"
+          </FadeIn>
+        </div>
+      </section>
+
+      {/* PHỤ LỤC AI */}
+      <section className="py-20 bg-slate-50 border-t border-slate-200">
+        <div className="container mx-auto px-6">
+          <FadeIn>
+            <div className="text-center mb-12">
+              <span className="text-red-500 font-bold uppercase tracking-widest text-xs mb-2 block">Công cụ hỗ trợ</span>
+              <h3 className="text-3xl font-extrabold text-slate-900">Phụ Lục AI</h3>
+              <div className="w-12 h-1 bg-red-600 mx-auto mt-4 rounded-full"></div>
+            </div>
+            
+            <div className="max-w-5xl mx-auto flex flex-wrap justify-center gap-6">
+              {[
+                { name: "Gamma", desc: "Thiết kế slide & cấu trúc", icon: "🎨" },
+                { name: "Gemini", desc: "Hỗ trợ nội dung & AI Chat", icon: "✨" },
+                { name: "NotebookLM", desc: "Phân tích tài liệu nguồn", icon: "📑" },
+                { name: "ChatGPT", desc: "Tối ưu hóa ngôn ngữ", icon: "💬" },
+                { name: "Heyzine", desc: "Nền tảng sách lật tương tác", icon: "📖" },
+              ].map((ai, i) => (
+                <div key={i} className="bg-white px-8 py-6 rounded-2xl border border-slate-200 shadow-sm flex flex-col items-center min-w-[200px] flex-1 hover:shadow-md transition-shadow">
+                  <span className="text-3xl mb-3">{ai.icon}</span>
+                  <h4 className="font-bold text-slate-900 mb-1">{ai.name}</h4>
+                  <p className="text-slate-500 text-xs text-center leading-relaxed">{ai.desc}</p>
+                </div>
+              ))}
+            </div>
+            
+            <p className="text-center text-slate-400 text-sm mt-12 font-medium italic">
+              "Kết hợp trí tuệ nhân tạo để lan tỏa tri thức lịch sử Đảng một cách sinh động và hiện đại."
             </p>
           </FadeIn>
         </div>
@@ -333,125 +497,67 @@ const Presentation = () => {
 // --- CREATIVE VIDEO ---
 
 const CreativeView = () => {
-  const [isPlaying, setIsPlaying] = useState(false);
-  const [time, setTime] = useState(0);
-  const DURATION = 90;
-
-  useEffect(() => {
-    let interval: number;
-    if (isPlaying && time < DURATION) {
-      interval = window.setInterval(() => {
-        setTime(prev => {
-          if (prev >= DURATION - 1) { setIsPlaying(false); return DURATION; }
-          return prev + 1;
-        });
-      }, 1000);
-    }
-    return () => clearInterval(interval);
-  }, [isPlaying, time]);
-
-  const togglePlay = () => setIsPlaying(!isPlaying);
-  const reset = () => { setIsPlaying(true); setTime(0); };
-  const progress = (time / DURATION) * 100;
-
-  let sceneContent, sceneClass = "";
-  if (time < 15) {
-    sceneClass = "bg-slate-900";
-    sceneContent = (
-      <motion.div key="1" initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }} exit={{ opacity: 0 }} className="text-center">
-        <h2 className="text-5xl font-black text-rose-500 mb-6 uppercase tracking-widest">Đêm trước Đổi Mới</h2>
-        <p className="text-2xl text-slate-300 max-w-2xl mx-auto leading-relaxed">Việt Nam chìm trong khủng hoảng... Lạm phát vọt lên <strong className="text-red-400">774,7%</strong>.</p>
-      </motion.div>
-    );
-  } else if (time < 40) {
-    sceneClass = "bg-red-950";
-    sceneContent = (
-      <motion.div key="2" initial={{ opacity: 0, x: -50 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0 }} className="text-center">
-        <h2 className="text-5xl font-black text-yellow-500 mb-6 uppercase tracking-widest">Cơn Sóng Gió</h2>
-        <p className="text-2xl text-red-200 max-w-2xl mx-auto leading-relaxed">1991: Liên Xô và Đông Âu sụp đổ. Cần một ngọn hải đăng soi sáng!</p>
-      </motion.div>
-    );
-  } else if (time < 65) {
-    sceneClass = "bg-red-700";
-    sceneContent = (
-      <motion.div key="3" initial={{ opacity: 0, scale: 1.1 }} animate={{ opacity: 1, scale: 1 }} exit={{ opacity: 0 }} className="text-center">
-        <h2 className="text-5xl font-black text-white mb-4 uppercase tracking-widest">Cương Lĩnh 1991</h2>
-        <p className="text-2xl text-yellow-300 font-bold mb-8">Bản Tuyên Ngôn Của Đổi Mới!</p>
-        <div className="grid grid-cols-2 gap-3 max-w-xl mx-auto text-lg">
-          {["Dân làm chủ","Kinh tế phát triển","Văn hóa đậm đà","Đoàn kết dân tộc"].map(t => (
-            <div key={t} className="bg-red-800 p-3 rounded-xl border border-red-500 text-white">{t}</div>
-          ))}
-        </div>
-      </motion.div>
-    );
-  } else if (time < 80) {
-    sceneClass = "bg-slate-50";
-    sceneContent = (
-      <motion.div key="4" initial={{ opacity: 0, y: 50 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0 }} className="text-center">
-        <h2 className="text-5xl font-black text-green-600 mb-8 uppercase tracking-widest">Kỳ Tích Thành Hình</h2>
-        <div className="flex justify-center gap-8">
-          <div className="p-8 bg-white shadow-xl rounded-2xl"><p className="text-slate-500 mb-1">Lạm phát giảm còn</p><p className="text-5xl font-black text-green-500">67%</p></div>
-          <div className="p-8 bg-white shadow-xl rounded-2xl"><p className="text-slate-500 mb-1">Xuất khẩu Gạo</p><p className="text-5xl font-black text-amber-500">Top 3<span className="text-lg text-slate-400 ml-1">TG</span></p></div>
-        </div>
-      </motion.div>
-    );
-  } else {
-    sceneClass = "bg-slate-900";
-    sceneContent = (
-      <motion.div key="5" initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="text-center">
-        <h2 className="text-6xl font-black text-yellow-500 mb-6 uppercase tracking-widest">Đổi Mới<br/>& Phát Triển</h2>
-        <p className="text-xl text-slate-300 max-w-xl mx-auto">Giá trị Cương Lĩnh 1991 mãi là kim chỉ nam cho cách mạng Việt Nam.</p>
-      </motion.div>
-    );
-  }
-
-  const formatTime = (s: number) => `${Math.floor(s / 60)}:${(s % 60).toString().padStart(2, '0')}`;
-
   return (
-    <div className="min-h-screen pt-28 pb-12 bg-slate-100 flex flex-col items-center justify-center">
-      <div className="container mx-auto px-6 max-w-4xl text-center mb-10">
-        <span className="text-red-500 font-bold uppercase tracking-widest text-sm mb-3 block">Video Ngắn (1p30s)</span>
-        <h2 className="text-4xl md:text-5xl font-black text-slate-900 mb-4">Sản Phẩm Sáng Tạo</h2>
-        <p className="text-slate-600 text-lg">Đoạn video Animation Code trực tiếp tóm tắt Cương lĩnh 1991</p>
+    <div className="min-h-screen pt-28 pb-12 bg-slate-100 flex flex-col items-center">
+      {/* HEADER */}
+      <div className="container mx-auto px-6 max-w-4xl text-center mb-16">
+        <span className="text-red-500 font-bold uppercase tracking-widest text-sm mb-3 block">Góc Sáng Tạo</span>
+        <h2 className="text-4xl md:text-5xl font-extrabold text-slate-900 mb-4 tracking-tight">Sản Phẩm Sáng Tạo</h2>
+        <p className="text-slate-600 text-lg max-w-2xl mx-auto">
+          Tài liệu đa phương tiện tóm tắt những giá trị cốt lõi của Cương lĩnh 1991 dưới dạng sách lật tương tác.
+        </p>
       </div>
-      <div className="w-full max-w-4xl aspect-video rounded-3xl overflow-hidden shadow-2xl relative border-4 border-slate-800 bg-black flex flex-col">
-        <div className={`flex-1 flex items-center justify-center relative overflow-hidden transition-colors duration-1000 ${sceneClass}`}>
-          <AnimatePresence mode="wait">
-            {!isPlaying && time === 0 ? (
-              <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="absolute inset-0 flex flex-col items-center justify-center z-20 bg-cover bg-center" style={{ backgroundImage: `url('/vietnam_history.png')` }}>
-                <div className="absolute inset-0 bg-slate-900/60 backdrop-blur-sm"></div>
-                <button onClick={togglePlay} className="relative z-10 w-24 h-24 bg-red-600 text-white rounded-full flex items-center justify-center shadow-2xl hover:bg-red-700 hover:scale-110 transition-all border-4 border-white/20">
-                  <Play size={40} className="ml-2" />
-                </button>
-                <h2 className="relative z-10 mt-8 text-3xl font-black text-white tracking-wider">BẤM ĐỂ PHÁT VIDEO</h2>
-                <p className="relative z-10 text-yellow-400 font-medium">Thời lượng: 01:30</p>
-              </motion.div>
-            ) : (
-              <div className="absolute inset-0 flex items-center justify-center p-12">{sceneContent}</div>
-            )}
-          </AnimatePresence>
-          <div className="absolute top-6 left-6 flex items-center gap-2 opacity-40 text-white z-50">
-            <div className="w-8 h-8 rounded-full bg-red-600 flex justify-center items-center font-bold text-xs">VN</div>
-            <span className="font-semibold text-sm tracking-wider">Lịch Sử Đảng</span>
+
+      <div className="container mx-auto px-6 max-w-6xl">
+        
+        {/* PRODUCT: HEYZINE FLIPBOOK */}
+        <section className="mb-12">
+          <div className="flex items-center gap-4 mb-8">
+            <div className="w-14 h-14 bg-blue-600 text-white rounded-2xl flex items-center justify-center shadow-lg shadow-blue-200">
+              <BookOpen size={28} />
+            </div>
+            <div>
+              <h3 className="text-3xl font-black text-slate-900">Flipbook Tương Tác</h3>
+              <p className="text-slate-500 font-medium">Cương lĩnh 1991 - Dấu ấn đổi mới & Bản lĩnh lý luận của Đảng</p>
+            </div>
           </div>
-        </div>
-        <div className="h-16 bg-slate-900 flex items-center px-6 gap-4 text-white z-30 shrink-0">
-          <button onClick={time >= DURATION ? reset : togglePlay} className="hover:text-red-400 transition-colors">
-            {time >= DURATION ? <RotateCcw size={22} /> : isPlaying ? <Pause size={22} /> : <Play size={22} />}
-          </button>
-          <div className="text-sm font-medium w-12 text-slate-300">{formatTime(time)}</div>
-          <div className="flex-1 relative h-1.5 bg-slate-700 rounded-full overflow-hidden">
-            <div className="absolute top-0 left-0 h-full bg-red-600 transition-all duration-1000 ease-linear" style={{ width: `${progress}%` }}></div>
+
+          <div className="w-full bg-white transition-all duration-700">
+            <div className="relative aspect-[16/10] md:h-[800px]">
+              <iframe 
+                src="https://heyzine.com/flip-book/a2ced1412a.html" 
+                className="w-full h-full border-none shadow-sm"
+                allowFullScreen 
+                allow="clipboard-write"
+                title="Cương lĩnh 1991 Flipbook"
+              ></iframe>
+            </div>
           </div>
-          <div className="text-sm font-medium w-12 text-slate-400 text-right">01:30</div>
-          <button className="hover:text-red-400 transition-colors ml-2 hidden sm:block"><Volume2 size={20} /></button>
-        </div>
-      </div>
-      <div className="container mx-auto px-6 max-w-4xl text-left mt-10">
-        <div className="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm">
-          <p className="text-sm text-slate-500 font-bold uppercase mb-2">Script kịch bản</p>
-          <p className="text-slate-700 italic">"Đêm trước Đổi Mới, Việt Nam chìm trong lạm phát... nhưng với bản lĩnh kiên cường, Đại hội VI là tiếng sấm vang lên. Cương lĩnh 1991 là bản thiết kế vĩ đại, kim chỉ nam đưa đất nước vượt sóng dữ, vươn lên hội nhập quốc tế..."</p>
-        </div>
+          
+          <div className="mt-12 grid md:grid-cols-3 gap-6">
+            <div className="bg-white p-6 rounded-3xl border border-slate-200 shadow-sm">
+              <div className="w-10 h-10 bg-red-50 text-red-600 rounded-xl flex items-center justify-center mb-4">
+                <ShieldAlert size={20} />
+              </div>
+              <h4 className="font-bold text-slate-900 mb-2">Bản lĩnh lý luận</h4>
+              <p className="text-sm text-slate-500 leading-relaxed">Khẳng định nền tảng tư tưởng và định hướng đi lên CNXH của dân tộc.</p>
+            </div>
+            <div className="bg-white p-6 rounded-3xl border border-slate-200 shadow-sm">
+              <div className="w-10 h-10 bg-yellow-50 text-yellow-600 rounded-xl flex items-center justify-center mb-4">
+                <BrainCircuit size={20} />
+              </div>
+              <h4 className="font-bold text-slate-900 mb-2">Đột phá tư duy</h4>
+              <p className="text-sm text-slate-500 leading-relaxed">Tóm lược các bài học kinh nghiệm và đặc trưng cốt lõi của mô hình mới.</p>
+            </div>
+            <div className="bg-white p-6 rounded-3xl border border-slate-200 shadow-sm">
+              <div className="w-10 h-10 bg-green-50 text-green-600 rounded-xl flex items-center justify-center mb-4">
+                <TrendingUp size={20} />
+              </div>
+              <h4 className="font-bold text-slate-900 mb-2">Giá trị thực tiễn</h4>
+              <p className="text-sm text-slate-500 leading-relaxed">Phản ánh thành tựu đổi mới và vị thế của Việt Nam trên trường quốc tế.</p>
+            </div>
+          </div>
+        </section>
       </div>
     </div>
   );
