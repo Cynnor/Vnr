@@ -4,8 +4,7 @@ import {
   X, MessageCircle, Send,
   TrendingUp, ShieldAlert, Award,
   BookOpen, Users, Landmark, HeartHandshake,
-  CheckCircle2, AlertCircle, ArrowRight, LayoutTemplate, BrainCircuit,
-  Video
+  CheckCircle2, AlertCircle, ArrowRight, LayoutTemplate, BrainCircuit
 } from 'lucide-react';
 
 const FadeIn = ({ children, delay = 0, className = "" }: { children: React.ReactNode, delay?: number, className?: string }) => (
@@ -209,7 +208,7 @@ const Presentation = () => {
             <SectionHeader
               part="Phần 3"
               title={<>Cụ Thể Hóa <span className="text-red-600">Mô Hình CNXH</span> tại Việt Nam</>}
-              subtitle="5 bài học lớn và 6 đặc trưng cơ bản — lần đầu phác họa hoàn chỉnh diện mạo CNXH Việt Nam."
+              subtitle="5 bài học lớn and 6 đặc trưng cơ bản — lần đầu phác họa hoàn chỉnh diện mạo CNXH Việt Nam."
             />
           </FadeIn>
 
@@ -217,8 +216,8 @@ const Presentation = () => {
             <FadeIn><h3 className="text-2xl font-extrabold text-slate-900 text-center mb-8">5 Bài Học Lớn</h3></FadeIn>
             <div className="flex flex-col gap-4">
               {[
-                "Nắm vững ngọn cờ độc lập dân tộc và CNXH",
-                "Sự nghiệp cách mạng là của nhân dân, do nhân dân và vì nhân dân",
+                "Nắm vững ngọn cờ độc lập dân tộc and CNXH",
+                "Sự nghiệp cách mạng là của nhân dân, do nhân dân and vì nhân dân",
                 "Củng cố, tăng cường đoàn kết toàn Đảng, đoàn kết toàn dân",
                 "Kết hợp sức mạnh dân tộc với sức mạnh thời đại",
                 "Sự lãnh đạo đúng đắn của Đảng là nhân tố hàng đầu bảo đảm thắng lợi",
@@ -269,8 +268,8 @@ const Presentation = () => {
                   { icon: <TrendingUp size={22}/>, title: "Kinh tế hiện đại", desc: "Lực lượng sản xuất phát triển cao trên cơ sở QHSX phù hợp." },
                   { icon: <Landmark size={22}/>, title: "Văn hóa dân tộc", desc: "Tiên tiến, đậm đà bản sắc, nâng tầm tâm hồn người Việt." },
                   { icon: <Award size={22}/>, title: "Đời sống ấm no", desc: "Không còn áp bức, mọi người làm theo năng lực hưởng theo lao động." },
-                  { icon: <HeartHandshake size={22}/>, title: "Các dân tộc bình đẳng", desc: "Bình đẳng, đoàn kết và giúp đỡ lẫn nhau cùng tiến bộ." },
-                  { icon: <ShieldAlert size={22}/>, title: "Hòa bình quốc tế", desc: "Quan hệ hữu nghị và hợp tác với nhân dân tất cả các nước." },
+                  { icon: <HeartHandshake size={22}/>, title: "Các dân tộc bình đẳng", desc: "Bình đẳng, đoàn kết and giúp đỡ lẫn nhau cùng tiến bộ." },
+                  { icon: <ShieldAlert size={22}/>, title: "Hòa bình quốc tế", desc: "Quan hệ hữu nghị and hợp tác với nhân dân tất cả các nước." },
                 ].map((item, i) => (
                   <FadeIn key={i} delay={0.08 * i}>
                     <div className="group relative bg-white border border-slate-100 p-8 rounded-[2.5rem] shadow-sm hover:shadow-2xl hover:border-red-100 transition-all duration-500 hover:-translate-y-1 h-full flex flex-col gap-5 overflow-hidden">
@@ -305,8 +304,8 @@ const Presentation = () => {
           </FadeIn>
           <div className="max-w-5xl mx-auto grid md:grid-cols-2 gap-8">
             {[
-              { emoji: "⏳", title: "Tính chất quá độ", items: ["Quá trình lịch sử lâu dài, trải qua nhiều chặng", "Đan xen đấu tranh giữa cái cũ và cái mới", "Chấm dứt hoàn toàn tư duy \"đốt cháy giai đoạn\""] },
-              { emoji: "🔄", title: '"Bỏ qua" chế độ TBCN', items: ["Bỏ qua vị trí thống trị của QHSX và kiến trúc thượng tầng TBCN", "Tiếp thu, kế thừa thành tựu KH-CN của nhân loại", "Nền móng để Đại hội IX (2001) làm rõ toàn diện"] },
+              { emoji: "⏳", title: "Tính chất quá độ", items: ["Quá trình lịch sử lâu dài, trải qua nhiều chặng", "Đan xen đấu tranh giữa cái cũ and cái mới", "Chấm dứt hoàn toàn tư duy \"đốt cháy giai đoạn\""] },
+              { emoji: "🔄", title: '"Bỏ qua" chế độ TBCN', items: ["Bỏ qua vị trí thống trị của QHSX and kiến trúc thượng tầng TBCN", "Tiếp thu, kế thừa thành tựu KH-CN của nhân loại", "Nền móng để Đại hội IX (2001) làm rõ toàn diện"] },
             ].map((block, i) => (
               <FadeIn key={i} delay={0.2 + i * 0.1}>
                 <div className="bg-slate-700/50 border border-slate-600/30 rounded-3xl p-10 h-full">
@@ -331,7 +330,7 @@ const Presentation = () => {
             <SectionHeader
               part="Phần 5"
               title={<>Đổi Mới Tư Duy về <span className="text-red-600">Kinh Tế & Chính Trị</span></>}
-              subtitle="Từ bỏ cơ chế bao cấp, xây dựng kinh tế thị trường định hướng XHCN và nhà nước pháp quyền."
+              subtitle="Từ bỏ cơ chế bao cấp, xây dựng kinh tế thị trường định hướng XHCN and nhà nước pháp quyền."
             />
           </FadeIn>
           <div className="max-w-5xl mx-auto grid md:grid-cols-2 gap-8">
@@ -474,7 +473,7 @@ const Presentation = () => {
                 { name: "Gemini", desc: "Hỗ trợ nội dung & AI Chat", icon: "✨" },
                 { name: "NotebookLM", desc: "Phân tích tài liệu nguồn", icon: "📑" },
                 { name: "ChatGPT", desc: "Tối ưu hóa ngôn ngữ", icon: "💬" },
-                { name: "Heyzine", desc: "Nền tảng sách lật tương tác", icon: "📖" },
+                { name: "Canva", desc: "Thiết kế sơ đồ tư duy", icon: "🧠" },
               ].map((ai, i) => (
                 <div key={i} className="bg-white px-8 py-6 rounded-2xl border border-slate-200 shadow-sm flex flex-col items-center min-w-[200px] flex-1 hover:shadow-md transition-shadow">
                   <span className="text-3xl mb-3">{ai.icon}</span>
@@ -485,7 +484,7 @@ const Presentation = () => {
             </div>
             
             <p className="text-center text-slate-400 text-sm mt-12 font-medium italic">
-              "Kết hợp trí tuệ nhân tạo để lan tỏa tri thức lịch sử Đảng một cách sinh động và hiện đại."
+              "Kết hợp trí tuệ nhân tạo để lan tỏa tri thức lịch sử Đảng một cách sinh động and hiện đại."
             </p>
           </FadeIn>
         </div>
@@ -504,57 +503,58 @@ const CreativeView = () => {
         <span className="text-red-500 font-bold uppercase tracking-widest text-sm mb-3 block">Góc Sáng Tạo</span>
         <h2 className="text-4xl md:text-5xl font-extrabold text-slate-900 mb-4 tracking-tight">Sản Phẩm Sáng Tạo</h2>
         <p className="text-slate-600 text-lg max-w-2xl mx-auto">
-          Tài liệu đa phương tiện tóm tắt những giá trị cốt lõi của Cương lĩnh 1991 dưới dạng sách lật tương tác.
+          Hệ thống hóa toàn bộ nội dung Cương lĩnh 1991 thông qua sơ đồ tư duy (Mind Map) trực quan, sinh động.
         </p>
       </div>
 
       <div className="container mx-auto px-6 max-w-6xl">
         
-        {/* PRODUCT: HEYZINE FLIPBOOK */}
+        {/* PRODUCT: MINDMAP */}
         <section className="mb-12">
           <div className="flex items-center gap-4 mb-8">
-            <div className="w-14 h-14 bg-blue-600 text-white rounded-2xl flex items-center justify-center shadow-lg shadow-blue-200">
-              <BookOpen size={28} />
+            <div className="w-14 h-14 bg-red-600 text-white rounded-2xl flex items-center justify-center shadow-lg shadow-red-200">
+              <BrainCircuit size={28} />
             </div>
             <div>
-              <h3 className="text-3xl font-black text-slate-900">Flipbook Tương Tác</h3>
-              <p className="text-slate-500 font-medium">Cương lĩnh 1991 - Dấu ấn đổi mới & Bản lĩnh lý luận của Đảng</p>
+              <h3 className="text-3xl font-black text-slate-900">Sơ Đồ Tư Duy</h3>
+              <p className="text-slate-500 font-medium">Cương lĩnh 1991 - Viên gạch nền tảng của Thời kỳ Đổi mới</p>
             </div>
           </div>
 
-          <div className="w-full bg-white transition-all duration-700">
-            <div className="relative aspect-[16/10] md:h-[800px]">
-              <iframe 
-                src="https://heyzine.com/flip-book/a2ced1412a.html" 
-                className="w-full h-full border-none shadow-sm"
-                allowFullScreen 
-                allow="clipboard-write"
-                title="Cương lĩnh 1991 Flipbook"
-              ></iframe>
+          <div className="w-full bg-white transition-all duration-700 rounded-[3rem] shadow-2xl border border-slate-200 overflow-hidden p-2">
+            <div className="relative group">
+              <img 
+                src="/sodo_tuduy.jpg" 
+                alt="Sơ đồ tư duy Cương lĩnh 1991" 
+                className="w-full h-auto rounded-[2.5rem] group-hover:scale-[1.02] transition-transform duration-700" 
+              />
+              <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-slate-900/60 to-transparent p-8 opacity-0 group-hover:opacity-100 transition-opacity">
+                <p className="text-white font-bold text-lg">Click để xem ảnh chất lượng cao</p>
+              </div>
             </div>
           </div>
           
           <div className="mt-12 grid md:grid-cols-3 gap-6">
-            <div className="bg-white p-6 rounded-3xl border border-slate-200 shadow-sm">
-              <div className="w-10 h-10 bg-red-50 text-red-600 rounded-xl flex items-center justify-center mb-4">
-                <ShieldAlert size={20} />
+            <div className="bg-white p-8 rounded-3xl border border-slate-200 shadow-sm hover:shadow-md transition-all">
+              <div className="w-12 h-12 bg-red-50 text-red-600 rounded-xl flex items-center justify-center mb-5">
+                <TrendingUp size={24} />
               </div>
-              <h4 className="font-bold text-slate-900 mb-2">Bản lĩnh lý luận</h4>
-              <p className="text-sm text-slate-500 leading-relaxed">Khẳng định nền tảng tư tưởng và định hướng đi lên CNXH của dân tộc.</p>
+              <h4 className="font-bold text-slate-900 text-lg mb-3">Tư duy hệ thống</h4>
+              <p className="text-sm text-slate-500 leading-relaxed">Sắp xếp các luận điểm cốt lõi một cách khoa học, giúp người đọc dễ dàng nắm bắt sự kiện.</p>
             </div>
-            <div className="bg-white p-6 rounded-3xl border border-slate-200 shadow-sm">
-              <div className="w-10 h-10 bg-yellow-50 text-yellow-600 rounded-xl flex items-center justify-center mb-4">
-                <BrainCircuit size={20} />
+            <div className="bg-white p-8 rounded-3xl border border-slate-200 shadow-sm hover:shadow-md transition-all">
+              <div className="w-12 h-12 bg-yellow-50 text-yellow-600 rounded-xl flex items-center justify-center mb-5">
+                <LayoutTemplate size={24} />
               </div>
-              <h4 className="font-bold text-slate-900 mb-2">Đột phá tư duy</h4>
-              <p className="text-sm text-slate-500 leading-relaxed">Tóm lược các bài học kinh nghiệm và đặc trưng cốt lõi của mô hình mới.</p>
+              <h4 className="font-bold text-slate-900 text-lg mb-3">Trực quan sinh động</h4>
+              <p className="text-sm text-slate-500 leading-relaxed">Hình ảnh minh họa and màu sắc được phân cấp rõ ràng cho từng nội dung trọng tâm.</p>
             </div>
-            <div className="bg-white p-6 rounded-3xl border border-slate-200 shadow-sm">
-              <div className="w-10 h-10 bg-green-50 text-green-600 rounded-xl flex items-center justify-center mb-4">
-                <TrendingUp size={20} />
+            <div className="bg-white p-8 rounded-3xl border border-slate-200 shadow-sm hover:shadow-md transition-all">
+              <div className="w-12 h-12 bg-green-50 text-green-600 rounded-xl flex items-center justify-center mb-5">
+                <Award size={24} />
               </div>
-              <h4 className="font-bold text-slate-900 mb-2">Giá trị thực tiễn</h4>
-              <p className="text-sm text-slate-500 leading-relaxed">Phản ánh thành tựu đổi mới và vị thế của Việt Nam trên trường quốc tế.</p>
+              <h4 className="font-bold text-slate-900 text-lg mb-3">Hiệu quả học tập</h4>
+              <p className="text-sm text-slate-500 leading-relaxed">Tóm lược 5 bài học and 6 đặc trưng của CNXH giúp ghi nhớ kiến thức lịch sử nhanh chóng.</p>
             </div>
           </div>
         </section>
@@ -567,60 +567,137 @@ const CreativeView = () => {
 
 const Quiz = () => {
   const questions = [
-    { q: "Lạm phát ở Việt Nam năm 1986 đỉnh điểm lên tới bao nhiêu phần trăm?", options: ["Khoảng 100%", "Khoảng 500%", "Khoảng 774%", "Hơn 1000%"], ans: 2 },
-    { q: "Văn kiện nào được đánh giá là 'Ngọn đuốc lý luận'?", options: ["Đại hội VI (1986)", "Cương lĩnh 1991", "Nghị quyết Trung ương 4", "Hiến pháp 1992"], ans: 1 },
-    { q: "Nhờ chính sách Khoán 10, Việt Nam vươn lên đạt vị trí nào về xuất khẩu gạo?", options: ["Tự cung tự cấp", "Top 10 thế giới", "Top 3 thế giới", "Đứng số 1"], ans: 2 },
-    { q: "Cương lĩnh 1991 xác định bao nhiêu đặc trưng cơ bản của CNXH?", options: ["4 đặc trưng", "5 đặc trưng", "6 đặc trưng", "8 đặc trưng"], ans: 2 },
-    { q: "Năm nào Việt Nam bình thường hóa quan hệ với Hoa Kỳ?", options: ["1991", "1993", "1995", "1997"], ans: 2 },
+    { q: "Bối cảnh chính dẫn đến sự ra đời của Cương lĩnh 1991 là gì?", options: ["Kinh tế phát triển mạnh", "Khủng hoảng kinh tế – xã hội nghiêm trọng", "Việt Nam đã hội nhập quốc tế", "Không có biến động quốc tế"], ans: 1 },
+    { q: "Đại hội nào thông qua Cương lĩnh 1991?", options: ["Đại hội VI", "Đại hội VII", "Đại hội VIII", "Đại hội IX"], ans: 1 },
+    { q: "Cương lĩnh 1991 xác định nền tảng tư tưởng của Đảng là gì?", options: ["Chủ nghĩa tư bản", "Chủ nghĩa Mác – Lênin", "Tư tưởng Hồ Chí Minh", "Chủ nghĩa Mác – Lênin và Tư tưởng Hồ Chí Minh"], ans: 3 },
+    { q: "Một trong các đặc trưng của CNXH ở Việt Nam là:", options: ["Do tư bản làm chủ", "Do nhân dân lao động làm chủ", "Do doanh nghiệp điều hành", "Do nước ngoài kiểm soát"], ans: 1 },
+    { q: "Đặc trưng kinh tế của CNXH theo Cương lĩnh 1991 là gì?", options: ["Kinh tế chỉ có nhà nước", "Kinh tế tư bản hoàn toàn", "Kinh tế nhiều thành phần, định hướng XHCN", "Không có thị trường"], ans: 2 },
+    { q: "Đặc trưng văn hóa của CNXH Việt Nam là:", options: ["Du nhập hoàn toàn phương Tây", "Không cần văn hóa", "Tiên tiến, đậm đà bản sắc dân tộc", "Chỉ giữ truyền thống"], ans: 2 },
+    { q: "Nội dung nào KHÔNG thuộc 6 đặc trưng của CNXH?", options: ["Đoàn kết dân tộc", "Quan hệ quốc tế", "Tăng trưởng quân sự", "Xã hội công bằng"], ans: 2 },
+    { q: "Quan hệ quốc tế trong Cương lĩnh 1991 được xác định như thế nào?", options: ["Đóng cửa hoàn toàn", "Chỉ hợp tác với các nước XHCN", "Hữu nghị và hợp tác với tất cả các nước", "Không có quan hệ quốc tế"], ans: 2 },
+    { q: "Nhận thức về thời kỳ quá độ lên CNXH là:", options: ["Ngắn hạn, nhanh chóng", "Không cần thời gian", "Lâu dài, phức tạp", "Không tồn tại"], ans: 2 },
+    { q: "Ý nghĩa lớn nhất của Cương lĩnh 1991 là gì?", options: ["Làm giảm dân số", "Giải quyết khủng hoảng đường lối và định hướng phát triển", "Chấm dứt kinh tế thị trường", "Tách khỏi thế giới"], ans: 1 },
   ];
   const [current, setCurrent] = useState(0);
-  const [score, setScore] = useState<number | null>(null);
+  const [points, setPoints] = useState(0);
+  const [showResult, setShowResult] = useState(false);
+  const [selectedIdx, setSelectedIdx] = useState<number | null>(null);
+  const [isShowingFeedback, setIsShowingFeedback] = useState(false);
 
   const handleSelected = (idx: number) => {
+    if (isShowingFeedback) return;
+    
+    setSelectedIdx(idx);
+    setIsShowingFeedback(true);
+    
     if (idx === questions[current].ans) {
-      if (current < questions.length - 1) setCurrent(c => c + 1);
-      else setScore(questions.length);
-    } else setScore(-1);
+      setPoints(prev => prev + 1);
+    }
+    
+    setTimeout(() => {
+      setIsShowingFeedback(false);
+      setSelectedIdx(null);
+      if (current < questions.length - 1) {
+        setCurrent(prev => prev + 1);
+      } else {
+        setShowResult(true);
+      }
+    }, 1500);
   };
-  const reset = () => { setCurrent(0); setScore(null); };
+
+  const reset = () => {
+    setCurrent(0);
+    setPoints(0);
+    setShowResult(false);
+    setSelectedIdx(null);
+    setIsShowingFeedback(false);
+  };
 
   return (
     <div className="min-h-screen pt-28 pb-12 bg-slate-50 flex flex-col items-center">
       <div className="container mx-auto px-6 max-w-3xl flex-1 flex flex-col justify-center">
         <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} className="text-center mb-16">
           <span className="text-amber-500 font-bold tracking-wider uppercase text-sm mb-3 block">Mini Game</span>
-          <h2 className="text-4xl font-extrabold text-slate-900 mb-4">Tổng Kết Kiến Thức</h2>
+          <h2 className="text-4xl font-extrabold text-slate-900 mb-4">Kiểm Tra Kiến Thức</h2>
           <div className="w-16 h-1.5 bg-amber-500 mx-auto rounded-full mb-4"></div>
-          <p className="text-slate-500">{questions.length} câu hỏi · Chọn đáp án đúng để tiếp tục</p>
+          <p className="text-slate-500">{questions.length} câu hỏi · Trả lời để xem phản hồi</p>
         </motion.div>
+
         <AnimatePresence mode="wait">
-          {score === questions.length ? (
-            <motion.div key="win" initial={{ scale: 0.9, opacity: 0 }} animate={{ scale: 1, opacity: 1 }} className="bg-white p-12 rounded-[2.5rem] shadow-2xl border border-green-100 text-center">
-              <CheckCircle2 className="text-green-500 mx-auto mb-6" size={64} />
-              <h3 className="text-4xl font-extrabold text-slate-900 mb-4">Hoàn Hảo! 🎉</h3>
-              <p className="text-slate-500 mb-6">Bạn đã trả lời đúng tất cả {questions.length} câu hỏi!</p>
-              <button onClick={reset} className="px-10 py-4 bg-amber-500 text-white font-bold rounded-full hover:bg-amber-600 transition-colors">Trải nghiệm lại</button>
-            </motion.div>
-          ) : score === -1 ? (
-            <motion.div key="lose" initial={{ scale: 0.9, opacity: 0 }} animate={{ scale: 1, opacity: 1 }} className="bg-white p-12 rounded-[2.5rem] shadow-2xl border border-red-100 text-center">
-              <AlertCircle className="text-red-500 mx-auto mb-6" size={64} />
-              <h3 className="text-4xl font-extrabold text-red-600 mb-4">Rất tiếc!</h3>
-              <p className="text-slate-500 mb-6">Đáp án chưa đúng, hãy thử lại nhé!</p>
-              <button onClick={() => setScore(null)} className="px-10 py-4 bg-slate-900 text-white font-bold rounded-full hover:bg-slate-700 transition-colors">Làm lại câu vừa rồi</button>
+          {showResult ? (
+            <motion.div key="result" initial={{ scale: 0.9, opacity: 0 }} animate={{ scale: 1, opacity: 1 }} className="bg-white p-12 rounded-[2.5rem] shadow-2xl border border-slate-100 text-center">
+              <div className="relative inline-block mb-8">
+                <Award className="text-amber-500 mx-auto" size={80} />
+                <div className="absolute -top-2 -right-2 bg-red-600 text-white w-10 h-10 rounded-full flex items-center justify-center font-black shadow-lg">★</div>
+              </div>
+              <h3 className="text-4xl font-extrabold text-slate-900 mb-4">Kết Quả Cuối Cùng!</h3>
+              <p className="text-slate-500 mb-2 font-medium">Bạn đã trả lời đúng:</p>
+              <div className="text-6xl font-black text-amber-500 mb-8">{points} / {questions.length}</div>
+              
+              <div className="bg-slate-50 p-6 rounded-2xl mb-8 border border-slate-100 italic text-slate-600 text-sm">
+                {points === questions.length ? "Chúc mừng! Bạn là chuyên gia về Cương lĩnh 1991!" : 
+                 points >= 7 ? "Rất tốt! Bạn nắm vững những nội dung cốt lõi." : 
+                 "Hãy xem lại nội dung thuyết trình để nắm vững kiến thức hơn nhé!"}
+              </div>
+              
+              <button 
+                onClick={reset} 
+                className="px-10 py-5 bg-slate-900 text-white font-bold rounded-2xl hover:bg-slate-800 transition-all hover:scale-105 active:scale-95 shadow-xl"
+              >
+                Trải nghiệm lại
+              </button>
             </motion.div>
           ) : (
             <motion.div key={current} initial={{ x: 50, opacity: 0 }} animate={{ x: 0, opacity: 1 }} exit={{ x: -50, opacity: 0 }} className="bg-white p-10 md:p-14 rounded-[2.5rem] shadow-xl border border-slate-100">
               <div className="flex justify-between items-center mb-8 text-sm text-slate-400 font-medium">
                 <span>Câu {current + 1} / {questions.length}</span>
-                <div className="flex gap-1">{questions.map((_, i) => <div key={i} className={`w-8 h-1.5 rounded-full ${i < current ? 'bg-green-400' : i === current ? 'bg-amber-400' : 'bg-slate-200'}`}></div>)}</div>
+                <div className="flex gap-1">
+                  {questions.map((_, i) => (
+                    <div key={i} className={`w-8 h-1.5 rounded-full transition-all duration-500 ${i < current ? 'bg-amber-500' : i === current ? 'bg-amber-400 scale-x-125' : 'bg-slate-100'}`}></div>
+                  ))}
+                </div>
               </div>
               <h3 className="text-2xl font-bold text-slate-900 mb-10 leading-tight">{questions[current].q}</h3>
               <div className="grid gap-4">
-                {questions[current].options.map((opt, i) => (
-                  <button key={i} onClick={() => handleSelected(i)} className="text-left px-8 py-5 rounded-2xl border-2 border-slate-100 hover:border-amber-400 hover:bg-amber-50 font-semibold flex justify-between items-center transition-colors">
-                    {opt} <ArrowRight size={20} className="text-amber-500 shrink-0" />
-                  </button>
-                ))}
+                {questions[current].options.map((opt, i) => {
+                  const isCorrectAnswer = i === questions[current].ans;
+                  const isSelected = i === selectedIdx;
+                  
+                  let buttonStyle = "border-slate-50 bg-slate-50";
+                  if (isShowingFeedback) {
+                    if (isCorrectAnswer) buttonStyle = "border-green-500 bg-green-50 ring-2 ring-green-500/20";
+                    else if (isSelected && !isCorrectAnswer) buttonStyle = "border-red-500 bg-red-50 ring-2 ring-red-500/20";
+                    else buttonStyle = "border-slate-50 bg-slate-50 opacity-40 scale-95";
+                  }
+
+                  return (
+                    <button 
+                      key={i} 
+                      onClick={() => handleSelected(i)} 
+                      disabled={isShowingFeedback}
+                      className={`group text-left px-8 py-5 rounded-2xl border-2 font-semibold flex justify-between items-center transition-all duration-300 ${buttonStyle} ${!isShowingFeedback && "hover:border-amber-400 hover:bg-amber-50 hover:translate-x-2"}`}
+                    >
+                      <span className="flex items-center gap-4">
+                        <span className={`w-8 h-8 rounded-lg flex items-center justify-center text-xs font-bold transition-colors uppercase border ${
+                          isShowingFeedback && isCorrectAnswer ? "bg-green-500 text-white border-green-500" :
+                          isShowingFeedback && isSelected && !isCorrectAnswer ? "bg-red-500 text-white border-red-500" :
+                          "bg-white border-slate-200 text-slate-400 group-hover:text-amber-500 group-hover:border-amber-200"
+                        }`}>
+                          {String.fromCharCode(65 + i)}
+                        </span>
+                        <span className={isShowingFeedback && isCorrectAnswer ? "text-green-700 font-bold" : ""}>
+                          {opt}
+                        </span>
+                      </span>
+                      {isShowingFeedback ? (
+                        isCorrectAnswer ? <CheckCircle2 size={24} className="text-green-600" /> :
+                        isSelected ? <X size={24} className="text-red-600" /> : null
+                      ) : (
+                        <ArrowRight size={20} className="text-amber-500 opacity-0 group-hover:opacity-100 transition-all -translate-x-4 group-hover:translate-x-0" />
+                      )}
+                    </button>
+                  );
+                })}
               </div>
             </motion.div>
           )}
@@ -651,17 +728,20 @@ const ChatWidget = () => {
     setIsLoading(true);
     try {
       const apiKey = import.meta.env.VITE_GEMINI_API_KEY;
-      if (!apiKey) {
-        setMessages(prev => [...prev, { role: 'ai', text: "Vui lòng cấu hình VITE_GEMINI_API_KEY trong file .env để AI có thể hoạt động thật." }]);
+      if (!apiKey || apiKey === "your_actual_api_key_here") {
+        setMessages(prev => [...prev, { role: 'ai', text: "Tôi chưa được kết nối API Key. Vui lòng thêm **VITE_GEMINI_API_KEY** vào file **.env** để mình có thể trả lời thật nhé!" }]);
         setIsLoading(false);
         return;
       }
+      
       const history = messages.filter(m => m.role !== 'ai' || !m.text.startsWith('Chào bạn')).map(m => ({
         role: m.role === 'ai' ? 'model' : 'user',
         parts: [{ text: m.text }]
       }));
+
       const contextPrompt = "Bạn là trợ lý AI tên VNR hỗ trợ học tập về Lịch sử Đảng, đặc biệt Cương lĩnh 1991. Hãy trả lời ngắn gọn, lịch sự, chính xác.";
-      const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${apiKey}`, {
+      
+      const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${apiKey}`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -670,18 +750,25 @@ const ChatWidget = () => {
             { role: 'model', parts: [{ text: "Tôi đã hiểu. Tôi sẽ trả lời với tư cách chuyên gia về Cương lĩnh 1991." }] },
             ...history,
             { role: 'user', parts: [{ text: userText }] }
-          ]
+          ],
+          generationConfig: {
+            temperature: 0.7,
+            topK: 40,
+            topP: 0.95,
+            maxOutputTokens: 1024,
+          }
         })
       });
+      
       const data = await response.json();
       if (data.error) {
-        setMessages(prev => [...prev, { role: 'ai', text: `Lỗi API: ${data.error.message}` }]);
+        setMessages(prev => [...prev, { role: 'ai', text: `Lỗi API (${data.error.code}): ${data.error.message}` }]);
       } else {
         const aiResponse = data.candidates?.[0]?.content?.parts?.[0]?.text || "Xin lỗi, không thể trả lời lúc này.";
         setMessages(prev => [...prev, { role: 'ai', text: aiResponse }]);
       }
-    } catch {
-      setMessages(prev => [...prev, { role: 'ai', text: "Lỗi kết nối mạng, vui lòng thử lại." }]);
+    } catch (err) {
+      setMessages(prev => [...prev, { role: 'ai', text: "Lỗi kết nối mạng, vui lòng thử lại sau." }]);
     } finally {
       setIsLoading(false);
     }
@@ -770,7 +857,7 @@ function App() {
               <LayoutTemplate size={18} /> Nội Dung
             </button>
             <button onClick={() => setActiveView('creative')} className={`flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-bold transition-all ${activeView === 'creative' ? 'bg-red-600 text-white shadow-md' : 'text-slate-500 hover:text-slate-800'}`}>
-              <Video size={18} /> Sản Phẩm
+              <BrainCircuit size={18} /> Sản Phẩm
             </button>
             <button onClick={() => setActiveView('quiz')} className={`flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-bold transition-all ${activeView === 'quiz' ? 'bg-amber-500 text-white shadow-md' : 'text-slate-500 hover:text-slate-800'}`}>
               <Award size={18} /> Kiểm Tra
